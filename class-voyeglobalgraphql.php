@@ -1,0 +1,57 @@
+<?php
+/**
+ * Plugin Name: WPGraphQL for voyeglobal
+ * Description: Add custom mutations and query for voyeglobal.
+ * Version: 1.0
+ * Author: Sandeep jain
+ * License: GPL2+
+ * @package VoyeglobalGraphql
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
+/**
+ * Class VoyeglobalGraphql.
+ *
+ * Handles the functionality for VoyeglobalGraphql.
+ *
+ * @package VoyeglobalGraphql
+ */
+class VoyeglobalGraphql {
+
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$this->define_constants();
+		// Include necessary files.
+		$this->load_voyeglobal_graphql_basic_files();
+	}
+
+	/**
+	 * Define plugin constants.
+	 */
+	private function define_constants() {
+		define( 'VOYEGLOBALGRAPHQL_PATH', plugin_dir_url( __FILE__ ) );
+		define( 'VOYEGLOBALGRAPHQL_DIR', plugin_dir_path( __FILE__ ) );
+		define( 'VOYEGLOBALGRAPHQL_VERSION', '1.0' );
+	}
+
+	/**
+	 * Include necessary files for bookmark post functionality.
+	 */
+	private function load_voyeglobal_graphql_basic_files() {
+		$include_path = VOYEGLOBALGRAPHQL_DIR . 'includes/';
+		$files        = glob( $include_path . '*.php' );
+		foreach ( $files as $file ) {
+			require_once $file;
+		}
+	}
+}
+
+// Initialize the class.
+new VoyeglobalGraphql();
+
