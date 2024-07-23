@@ -2,7 +2,36 @@
 /**
  * Search Auto complete mutation.
  *
- *  @package VoyeglobalGraphql
+ * @package VoyeglobalGraphql
+ *
+ * This file defines the GraphQL mutation for search autocomplete.
+ *
+ * Example GraphQL Mutation:
+ *
+ * ```
+ * mutation SearchAutocomplete($inputValue: String!, $language: String!) {
+ *   searchAutocomplete(input: {inputValue: $inputValue, language: $language}) {
+ *     localResults {
+ *       name
+ *       thumbnail
+ *       link
+ *       term_id
+ *     }
+ *     regionalResults {
+ *       name
+ *       thumbnail
+ *       link
+ *       term_id
+ *     }
+ *     globalResults {
+ *       name
+ *       thumbnail
+ *       link
+ *       term_id
+ *     }
+ *   }
+ * }
+ * ```
  */
 
 /**
@@ -25,23 +54,23 @@ class GraphQLSearchAutocomplete {
 		register_graphql_object_type(
 			'SearchResult',
 			array(
-				'description' => 'Search result item',
+				'description' => __( 'Search result item', 'voyeglobalgraphql' ),
 				'fields'      => array(
 					'name'      => array(
 						'type'        => 'String',
-						'description' => 'The name of the category',
+						'description' => __( 'The name of the category', 'voyeglobalgraphql' ),
 					),
 					'thumbnail' => array(
 						'type'        => 'String',
-						'description' => 'The thumbnail of the category',
+						'description' => __( 'The thumbnail of the category', 'voyeglobalgraphql' ),
 					),
 					'link'      => array(
 						'type'        => 'String',
-						'description' => 'The link to the category',
+						'description' => __( 'The link to the category', 'voyeglobalgraphql' ),
 					),
 					'term_id'   => array(
 						'type'        => 'Int',
-						'description' => 'The term ID of the category',
+						'description' => __( 'The term ID of the category', 'voyeglobalgraphql' ),
 					),
 				),
 			)
@@ -54,25 +83,25 @@ class GraphQLSearchAutocomplete {
 				'inputFields'         => array(
 					'inputValue' => array(
 						'type'        => 'String',
-						'description' => 'The input value for the search',
+						'description' => __( 'The input value for the search', 'voyeglobalgraphql' ),
 					),
 					'language'   => array(
 						'type'        => 'String',
-						'description' => 'The current language',
+						'description' => __( 'The current language', 'voyeglobalgraphql' ),
 					),
 				),
 				'outputFields'        => array(
 					'localResults'    => array(
 						'type'        => array( 'list_of' => 'SearchResult' ),
-						'description' => 'The local search results',
+						'description' => __( 'The local search results', 'voyeglobalgraphql' ),
 					),
 					'regionalResults' => array(
 						'type'        => array( 'list_of' => 'SearchResult' ),
-						'description' => 'The regional search results',
+						'description' => __( 'The regional search results', 'voyeglobalgraphql' ),
 					),
 					'globalResults'   => array(
 						'type'        => array( 'list_of' => 'SearchResult' ),
-						'description' => 'The global search results',
+						'description' => __( 'The global search results', 'voyeglobalgraphql' ),
 					),
 				),
 				'mutateAndGetPayload' => array( $this, 'search_autocomplete' ),
@@ -204,5 +233,3 @@ class GraphQLSearchAutocomplete {
 	}
 }
 new GraphQLSearchAutocomplete();
-
-
