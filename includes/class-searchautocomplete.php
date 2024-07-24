@@ -34,14 +34,16 @@
  * ```
  */
 
+namespace VoyeglobalGraphql\Includes;
+
 /**
- * Class GraphQLSearchAutocomplete
+ * Class SearchAutocomplete.
  *
  * Handles the registration of GraphQL types and mutations for search autocomplete.
  */
-class GraphQLSearchAutocomplete {
+class SearchAutocomplete {
 	/**
-	 * GraphQLSearchAutocomplete constructor.
+	 * SearchAutocomplete constructor.
 	 */
 	public function __construct() {
 		add_action( 'graphql_register_types', array( $this, 'register_graphql_types' ) );
@@ -232,4 +234,4 @@ class GraphQLSearchAutocomplete {
 		);
 	}
 }
-new GraphQLSearchAutocomplete();
+new SearchAutocomplete();

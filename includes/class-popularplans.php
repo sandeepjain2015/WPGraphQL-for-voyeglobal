@@ -1,6 +1,6 @@
 <?php
 /**
- * GraphQLPopularPlans class file.
+ * PopularPlans class file.
  *
  * Use as:
  *
@@ -25,12 +25,14 @@
  * @package VoyeglobalGraphql
  */
 
+namespace VoyeglobalGraphql;
+
 /**
- * Class GraphQLPopularPlans
+ * Class PopularPlans
  *
  * Registers GraphQL types and resolves popular plans and prices.
  */
-class GraphQLPopularPlans {
+class PopularPlans {
 
 	/**
 	 * Constructor to add action for registering GraphQL types.
@@ -82,7 +84,8 @@ class GraphQLPopularPlans {
 	 */
 	public function resolve_popular_plans_and_prices( $root, $args, $context, $info ) {
 		$cache_key      = 'popular_plans_and_prices';
-		$cached_results = wp_cache_get( $cache_key, 'popular_plans_group' );
+		$cache_group    = 'voyeglobal_graphql';
+		$cached_results = wp_cache_get( $cache_key, $cache_group );
 
 		if ( false !== $cached_results ) {
 			return $cached_results;
@@ -113,7 +116,7 @@ class GraphQLPopularPlans {
 				),
 			);
 
-			$products_query = new WP_Query( $args );
+			$products_query = new \WP_Query( $args );
 
 			if ( $products_query->have_posts() ) {
 				while ( $products_query->have_posts() ) {
@@ -144,10 +147,10 @@ class GraphQLPopularPlans {
 		}
 
 		// Cache the results for 1 hour.
-		wp_cache_set( $cache_key, $results, 'popular_plans_group', HOUR_IN_SECONDS );
+		wp_cache_set( $cache_key, $results, $cache_group, HOUR_IN_SECONDS );
 
 		return $results;
 	}
 }
 
-new GraphQLPopularPlans();
+new PopularPlans();

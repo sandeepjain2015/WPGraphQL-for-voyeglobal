@@ -19,15 +19,17 @@
  * ```
  */
 
+namespace VoyeglobalGraphql\Includes;
+
 /**
- * Class GraphQLSupportedDevices
+ * Class SupportedDevices
  *
  * Registers a custom GraphQL mutation to check for supported devices.
  */
-class GraphQLSupportedDevices {
+class SupportedDevices {
 
 	/**
-	 * GraphQLSupportedDevices constructor.
+	 * SupportedDevices constructor.
 	 *
 	 * Hooks into graphql_register_types to register the mutation.
 	 */
@@ -108,6 +110,5 @@ class GraphQLSupportedDevices {
 	}
 }
 
-// Initialize the class to register the mutation.
-new GraphQLSupportedDevices();
+new SupportedDevices();
 

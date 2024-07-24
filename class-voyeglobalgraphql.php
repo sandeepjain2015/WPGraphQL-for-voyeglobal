@@ -1,17 +1,19 @@
 <?php
 /**
- * Plugin Name: WPGraphQL for voyeglobal
- * Description: Add custom mutations and query for voyeglobal.
+ * Plugin Name: WPGraphQL for Voyeglobal
+ * Description: Add custom mutations and query for Voyeglobal.
  * Version: 1.0
- * Author: Sandeep jain
+ * Author: Sandeep Jain
  * License: GPL2+
+ *
  * @package VoyeglobalGraphql
  */
+
+namespace VoyeglobalGraphql;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 
 /**
  * Class VoyeglobalGraphql.
@@ -55,4 +57,3 @@ class VoyeglobalGraphql {
 
 // Initialize the class.
 new VoyeglobalGraphql();
-
