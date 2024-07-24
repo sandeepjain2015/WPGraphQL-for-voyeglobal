@@ -132,7 +132,7 @@ class GraphQLSearchAutocomplete {
 			);
 		}
 
-		$filePath = get_template_directory() . "/data/product_categories_{$language}.json";
+		$filePath = VOYEGLOBALGRAPHQL_DATA_PATH . "product_categories_{$language}.json";
 
 		if ( ! file_exists( $filePath ) ) {
 			return array(

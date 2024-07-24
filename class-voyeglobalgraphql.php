@@ -38,6 +38,7 @@ class VoyeglobalGraphql {
 		define( 'VOYEGLOBALGRAPHQL_PATH', plugin_dir_url( __FILE__ ) );
 		define( 'VOYEGLOBALGRAPHQL_DIR', plugin_dir_path( __FILE__ ) );
 		define( 'VOYEGLOBALGRAPHQL_VERSION', '1.0' );
+		define( 'VOYEGLOBALGRAPHQL_DATA_PATH', get_template_directory() . '/data/' );
 	}
 
 	/**
