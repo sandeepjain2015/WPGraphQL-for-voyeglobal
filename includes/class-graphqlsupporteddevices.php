@@ -9,8 +9,8 @@
  * Example GraphQL Mutation:
  *
  * ```
- * mutation SearchSupportedDevices($device_name: String!) {
- * searchSupportedDevices(input: { device_name: $device_name }) {
+ * mutation checkSupportedDevices($device_name: String!) {
+ * checkSupportedDevices(input: { device_name: $device_name }) {
  *   is_supported
  *   supported_device_names
  *  }
@@ -22,7 +22,7 @@
 /**
  * Class GraphQLSupportedDevices
  *
- * Registers a custom GraphQL mutation to search for supported devices.
+ * Registers a custom GraphQL mutation to check for supported devices.
  */
 class GraphQLSupportedDevices {
 
@@ -36,13 +36,13 @@ class GraphQLSupportedDevices {
 	}
 
 	/**
-	 * Registers the searchSupportedDevices GraphQL mutation.
+	 * Registers the checkSupportedDevices GraphQL mutation.
 	 *
-	 * The mutation allows searching for supported devices by their name.
+	 * The mutation allows checking for supported devices by their name.
 	 */
 	public function register_mutation() {
 		register_graphql_mutation(
-			'searchSupportedDevices',
+			'checkSupportedDevices',
 			array(
 				'inputFields'         => array(
 					'device_name' => array(
@@ -66,7 +66,7 @@ class GraphQLSupportedDevices {
 	}
 
 	/**
-	 * Handles the searchSupportedDevices mutation payload.
+	 * Handles the checkSupportedDevices mutation payload.
 	 *
 	 * Searches the supported devices JSON file for the given device name.
 	 *
