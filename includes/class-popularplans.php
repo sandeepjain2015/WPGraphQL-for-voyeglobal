@@ -25,7 +25,8 @@
  * @package VoyeglobalGraphql
  */
 
-namespace VoyeglobalGraphql;
+namespace VoyeglobalGraphql\Includes;
+
 
 /**
  * Class PopularPlans
