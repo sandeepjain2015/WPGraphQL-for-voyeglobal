@@ -10,8 +10,6 @@
 namespace VoyeglobalGraphql\Includes;
 
 use WC_Customer;
-use WP_Error;
-
 /**
  * Class RegisterUserMutation
  *
