@@ -3,7 +3,7 @@ require_once 'smtp/PHPMailerAutoload.php';
 
 class Mailer {
     private static $username = "mr.sandeepmcscet@gmail.com";
-    private static $password = "gtjy yrfo bhtd kjxf";
+    private static $password = "changeitforsecurityreason";
     private static $from = "email"; // Replace with your actual email address
 
     public static function sendEmail($to, $subject, $msg) {
