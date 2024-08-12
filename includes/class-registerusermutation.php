@@ -9,6 +9,10 @@
 
 namespace VoyeglobalGraphql\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use WC_Customer;
 /**
  * Class RegisterUserMutation

@@ -36,6 +36,10 @@
 
 namespace VoyeglobalGraphql\Includes;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class SearchAutocomplete.
  *

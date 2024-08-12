@@ -5,7 +5,11 @@
  * @package VoyeglobalGraphql
  */
 
-namespace VoyeglobalGraphql\Includes;
+ namespace VoyeglobalGraphql\Includes;
+
+ if ( ! defined( 'ABSPATH' ) ) {
+	 exit;
+ }
 
 /**
  * Class EsimProductsQuery
